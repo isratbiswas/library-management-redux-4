@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link, } from 'react-router';
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
       <Link to='/borrowBook'>   Borrow Summary</Link>
       </ul>
     </div>
-    <a className=" text-xl font-bold ">Minimal Library Management</a>
+    <a className=" text-3xl font-bold ">BOOKNEST</a>
   </div>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

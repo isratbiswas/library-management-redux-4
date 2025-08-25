@@ -13,7 +13,7 @@ const FooterSummary = () => {
                 <div className="text-left">
                        <div className="flex">
                          <img className="w-20 rounded-lg bg-red-500" src="https://i.pinimg.com/736x/73/f6/3e/73f63efb6c8b1bbbbd84f1cde7a69c72.jpg" alt=""/>
-                          <h2 className="text-2xl ml-2 font-bold">BookNest</h2> 
+                          <h2 className="text-3xl mt-2 ml-2 text-[#4DA8DA] font-bold">BookNest</h2> 
                        </div>
                      <p className="text-gray-600 font-base mt-4">Welcome to BookNest – your digital haven for stories, knowledge, and imagination. Whether you're searching for timeless classics, the latest bestsellers, or hidden literary gems, our library offers something for every kind of reader. Discover, borrow, or dive into books that spark curiosity and fuel your love for reading—all in one place.</p>
                      <div className="flex mb-10 mt-4 text-3xl text-[#4DA8DA] gap-6">
@@ -22,6 +22,7 @@ const FooterSummary = () => {
                         <FaYoutube />
                         <FaLinkedinIn />
                      </div>
+                   
                 </div>
                 <div className="text-left ml-4">
                      <h2 className="text-xl font-bold mb-2">Customers Support</h2>
@@ -44,7 +45,9 @@ const FooterSummary = () => {
                       <FooterNews/>
                 </div>
             </div>
-            
+              <div className="text-center text-gray-800 m-4  text-lg font-semibold"> 
+                      <p className="mb-4">© 2025 BOOKNEST. All rights reserved.</p>
+                     </div>
         </div>
     );
 };
