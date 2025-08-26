@@ -1,4 +1,5 @@
 
+import Loader from "@/components/loader/Loader";
 import { useGetBorrowSummaryQuery } from "@/redux/api/baseApi";
 import { AlertCircle, BookOpen } from "lucide-react";
 
@@ -52,7 +53,7 @@ const BorrowSummaryPage = () => {
   const { data, isLoading, error } = useGetBorrowSummaryQuery();
 
   if (isLoading) {
-    return  <p>Loading</p>;
+    return  <Loader/>;
   }
 
   if (error) {

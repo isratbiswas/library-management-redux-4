@@ -1,5 +1,6 @@
 import BookGridView from "@/components/books/BookGridView";
 import BookListView from "@/components/books/BookListView";
+import Loader from "@/components/loader/Loader";
 import { cn } from "@/lib/utils";
 import { useGetBooksQuery } from "@/redux/api/baseApi";
 import {
@@ -56,7 +57,7 @@ const BooksPage = () => {
   const genres = [...new Set(books.map((book) => book.genre))];
 
   if (isLoading) {
-    return <p>Loading ....</p>;
+    return <Loader/> ;
   }
 
   if (error) {

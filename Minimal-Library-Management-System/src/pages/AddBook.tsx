@@ -6,6 +6,8 @@ import type { createBookFormData } from "@/zod";
 import { toast } from "sonner";
 import { z } from "zod";
 import React, { useState } from 'react';
+import { Copy, Tag } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@radix-ui/react-select';
 const AddBook = () => {
   const [createBook, {isLoading}] = useCreateBookMutation();
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -49,7 +51,7 @@ const AddBook = () => {
     validateField(field, value);
   };
   
- const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+ const handleSubmit = async (e:any) => {
     e.preventDefault();
     setFieldErrors({});
 
@@ -123,13 +125,42 @@ const AddBook = () => {
    {fieldErrors.author && (<p className="text-xs text-red-600 mt-1">{fieldErrors.author}
   </p>
                 )}
-  <label className="label mt-2 text-base font-semibold">Genre</label>
-  <input type="text" className="input mt-4 text-base font-semibold" placeholder="Genre"   name="genre"
+      <div className="w-full">
+                <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                  <Tag className="h-4 w-4 mr-2 text-gray-500" />
+                  Genre *
+                </label>
+                <Select
+                  name="genre"
                   value={formData.genre}
-                  onChange={(value : any) =>
+                  onValueChange={(value) =>
                     handleFieldChange("genre", value as Genre)
                   }
-                  disabled={isLoading} />
+                  disabled={isLoading}
+                >
+                  <SelectTrigger
+                    className={`w-full !bg-white !border-gray-200 ${
+                      fieldErrors.genre
+                        ? "border-red-300 focus:ring-red-500"
+                        : ""
+                    }`}
+                  >
+                    <SelectValue placeholder="Select a genre" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.values(Genre).map((genre) => (
+                      <SelectItem className='text-gray-800 font-bold text-3xl' key={genre} value={genre}>
+                        {genre}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {fieldErrors.genre && (
+                  <p className="text-xs text-red-600 mt-1">
+                    {fieldErrors.genre}
+                  </p>
+                )}
+              </div>
   <label className="label">ISBN</label>
   <input type="text" className="input mt-4 text-base font-semibold" placeholder="Enter ISBN (11 or13 digits)"  name="isbn" required value={formData.isbn} onChange={(e) => handleFieldChange("isbn", e.target.value)}   disabled={isLoading}/>
   {fieldErrors.isbn && (
@@ -149,20 +180,34 @@ const AddBook = () => {
                   placeholder="Enter book description"
                   disabled={isLoading}
                 />
-        <label className="label">Copies</label>
-        <input type="text" className="input" placeholder="Copies" name="copies"
+      
+                <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                  <Copy className="h-4 w-4 mr-2 mt-3 text-gray-500" />
+                  Number of Copies *
+                </label>
+                <input
+                  type="number"
+                  name="copies"
                   required
                   min={1}
                   max={100}
                   value={formData.copies}
                   onChange={(e) =>
                     handleFieldChange("copies", parseInt(e.target.value) || 1)
-                  }   disabled={isLoading} />
-   {fieldErrors.copies && (
+                  }
+                  className="border border- border-gray-300 w-full py-2 text-xl "
+                  placeholder="Enter number of copies"
+                  disabled={isLoading}
+                />
+                {fieldErrors.copies && (
                   <p className="text-xs text-red-600 mt-1">
                     {fieldErrors.copies}
                   </p>
                 )}
+                <p className="text-xs text-gray-500 mt-1">
+                  Maximum 100 copies allowed
+                </p>
+             
 
     <button type='submit'className='btn btn-primary m-6' >Add Book</button>
       </form>
