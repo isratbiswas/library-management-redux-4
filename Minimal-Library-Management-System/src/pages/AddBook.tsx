@@ -5,9 +5,9 @@ import { createBookSchema } from "@/zod";
 import type { createBookFormData } from "@/zod";
 import { toast } from "sonner";
 import { z } from "zod";
-import React, { useState } from 'react';
-import { Copy, Tag } from 'lucide-react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@radix-ui/react-select';
+import  { useState } from 'react';
+import { Copy } from 'lucide-react';
+
 const AddBook = () => {
   const [createBook, {isLoading}] = useCreateBookMutation();
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -125,42 +125,15 @@ const AddBook = () => {
    {fieldErrors.author && (<p className="text-xs text-red-600 mt-1">{fieldErrors.author}
   </p>
                 )}
-      <div className="w-full">
-                <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                  <Tag className="h-4 w-4 mr-2 text-gray-500" />
-                  Genre *
-                </label>
-                <Select
-                  name="genre"
+
+    <label className="label mt-2 text-base font-semibold">Genre</label>
+  <input type="text" className="input mt-4 text-base font-semibold" placeholder="Genre"   name="genre"
                   value={formData.genre}
-                  onValueChange={(value) =>
+                  onChange={(value : any) =>
                     handleFieldChange("genre", value as Genre)
                   }
-                  disabled={isLoading}
-                >
-                  <SelectTrigger
-                    className={`w-full !bg-white !border-gray-200 ${
-                      fieldErrors.genre
-                        ? "border-red-300 focus:ring-red-500"
-                        : ""
-                    }`}
-                  >
-                    <SelectValue placeholder="Select a genre" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.values(Genre).map((genre) => (
-                      <SelectItem className='text-gray-800 font-bold text-3xl' key={genre} value={genre}>
-                        {genre}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {fieldErrors.genre && (
-                  <p className="text-xs text-red-600 mt-1">
-                    {fieldErrors.genre}
-                  </p>
-                )}
-              </div>
+                  disabled={isLoading} />
+  
   <label className="label">ISBN</label>
   <input type="text" className="input mt-4 text-base font-semibold" placeholder="Enter ISBN (11 or13 digits)"  name="isbn" required value={formData.isbn} onChange={(e) => handleFieldChange("isbn", e.target.value)}   disabled={isLoading}/>
   {fieldErrors.isbn && (

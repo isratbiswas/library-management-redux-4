@@ -35,7 +35,7 @@ export const createBookSchema = z.object({
     .min(2, "Author must be at least 2 characters")
     .max(100, "Author must be less than 100 characters"),
    genre: z.nativeEnum(Genre, {
-        error: "Please select a valid genre",
+        message: "Please select a valid genre",
     }),
     isbn: z.string()
      .min(1, "ISBN is required")
