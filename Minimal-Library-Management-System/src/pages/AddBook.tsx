@@ -110,7 +110,7 @@ const AddBook = () => {
 
 
     return (
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center mt-16'>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 shadow-md mt-4">
        <legend className="fieldset-legend text-xl">Add New Book</legend>
 
@@ -127,12 +127,16 @@ const AddBook = () => {
                 )}
 
     <label className="label mt-2 text-base font-semibold">Genre</label>
-  <input type="text" className="input mt-4 text-base font-semibold" placeholder="Genre"   name="genre"
+  <select name="genre" className="select mt-4 text-base font-semibold"
                   value={formData.genre}
-                  onChange={(value : any) =>
-                    handleFieldChange("genre", value as Genre)
-                  }
-                  disabled={isLoading} />
+                 onChange={(e) => handleFieldChange("genre", e.target.value as Genre)}
+                  disabled={isLoading} >
+                      {Object.values(Genre).map((g) => (
+    <option key={g} value={g}>
+      {g}
+    </option>
+  ))}
+</select>
   
   <label className="label">ISBN</label>
   <input type="text" className="input mt-4 text-base font-semibold" placeholder="Enter ISBN (11 or13 digits)"  name="isbn" required value={formData.isbn} onChange={(e) => handleFieldChange("isbn", e.target.value)}   disabled={isLoading}/>

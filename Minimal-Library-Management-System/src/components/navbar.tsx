@@ -1,36 +1,92 @@
 
-import { Link, } from 'react-router';
+// import { Link, } from 'react-router';
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "AllBook", path: "/allBooks" },
+    { name: "Add Book", path: "/addBook" },
+    { name: "Borrow Summary", path: "/borrowBook" },
+  ];
     return (
-    <div className="container mx-auto">
-            <div className="navbar bg-[#FFD66B] shadow-sm text-[#4DA8DA]">
-    <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+   
+
+
+
+
+
+
+
+
+
+
+    <div className="container">
+      <nav className=" bg-[#FFD66B] shadow-md fixed w-full top-0  mb-10 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="text-2xl font-bold text-green-600">BookNest</div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-6">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  `px-2 py-1 transition-colors ${
+                    isActive
+                      ? "text-green-600 border-b-2 border-green-600"
+                      : "text-gray-700 hover:text-green-600"
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-700 focus:outline-none"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-       <Link to='/allBooks'>All Books</Link>
-        
-          <Link  to="/addBook">Add Book</Link>
-        
-      <Link to='/borrowBook'>   Borrow Summary</Link>
-      </ul>
-    </div>
-    <a className=" text-3xl font-bold ">BOOKNEST</a>
-  </div>
-  <div className="navbar-end hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-        <Link to='/allBooks' className='m-3 text-lg font-semibold'>All Books</Link>
-        <Link to='/addBook' className='m-3 text-lg font-semibold'>Add Book</Link>
-        <Link to='/borrowBook' className='m-3 text-lg font-semibold'>Borrow Summary</Link>
-       
-    </ul>
-  </div>
-</div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `block px-4 py-2 transition-colors ${
+                  isActive
+                    ? "text-green-600 bg-gray-100 font-medium"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`
+              }
+              onClick={() => setIsOpen(false)} // close menu after click
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </div>
+      )}
+    </nav>
     </div>
     );
 };
