@@ -4,9 +4,9 @@ import FooterSummary from '../components/footer/FooterSummary';
 
 const Footer = () => {
     return (
-        <div className='bg-[#FFD66B]'>
+        <div className=''>
              <FooterContact/>
-            <div className="text-[#4DA8DA] ml-3 mr-3 mt-6">
+            <div className="text-gray-300 ml-3 mr-3 mt-8">
                  <hr/>
             </div>
              <FooterSummary/>

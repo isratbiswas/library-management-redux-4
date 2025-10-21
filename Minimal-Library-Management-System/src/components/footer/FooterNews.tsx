@@ -3,8 +3,8 @@ import { BsFillSendDashFill } from "react-icons/bs";
 const FooterNews = () => {
     return (
         <div>
-             <div className="">
-                 <h2 className="text-xl font-bold ml-2">Newsletter</h2>
+             <div className="mt-6">
+                 <h2 className="text-xl text-[#F08787] font-semibold ml-2">Newsletter</h2>
                      <p className="text-lg text-gray-500 font-semibold mt-13 mb-10 me-2 ml-2">Sign up to searing weekly newsletter to get the latest updates.</p>
                      <div className="join">
   <div>
@@ -25,7 +25,7 @@ const FooterNews = () => {
     </label>
     <div className="validator-hint hidden">Enter valid email address</div>
   </div>
-  <button className="btn bg-[#80D8C3]  join-item mb-10">
+  <button className="btn bg-[#FFA4A4]  join-item mb-10">
            <BsFillSendDashFill />
   </button>
 </div>

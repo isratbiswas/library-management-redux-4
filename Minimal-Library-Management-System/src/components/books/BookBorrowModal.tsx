@@ -16,6 +16,7 @@ import {
 
 import { ScrollArea } from "../ui/scroll-area";
 import type { IBook } from "@/interfaces/types";
+import { useNavigate } from "react-router-dom";
 
 interface BookBorrowModalProps {
   book: IBook;
@@ -23,6 +24,7 @@ interface BookBorrowModalProps {
 
 export default function BookBorrowModal({ book }: BookBorrowModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate= useNavigate()
   const [createBorrow, { isLoading }] = useCreateBorrowMutation();
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
@@ -135,6 +137,8 @@ export default function BookBorrowModal({ book }: BookBorrowModalProps) {
             duration: 4000,
           });
 
+          navigate("/borrowBook")
+          
           // Reset form
           setFormData({
             quantity: 1,

@@ -7,9 +7,11 @@ import { toast } from "sonner";
 import { z } from "zod";
 import  { useState } from 'react';
 import { Copy } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AddBook = () => {
   const [createBook, {isLoading}] = useCreateBookMutation();
+  const navigate= useNavigate()
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
  const [formData, setFormData]= useState<createBookFormData>({
     title: "",
@@ -69,6 +71,9 @@ const AddBook = () => {
           description: `${validatedData.title} by ${validatedData.author} has been added to the library.`,
           duration: 4000,
         });
+
+        navigate("/allBooks")
+
           setFormData({
           title: "",
           author: "",

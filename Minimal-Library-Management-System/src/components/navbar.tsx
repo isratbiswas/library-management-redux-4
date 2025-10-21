@@ -16,26 +16,19 @@ const Navbar = () => {
     { name: "Borrow Summary", path: "/borrowBook" },
   ];
     return (
-   
-
-
-
-
-
-
-
-
-
-
-    <div className="container">
-      <nav className=" bg-[#FFD66B] shadow-md fixed w-full top-0  mb-10 left-0 z-50">
+    <div className="">
+      <nav className=" bg-[#f7f2f2]   mb-10 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 mt-2 mb-2">
           {/* Logo */}
-          <div className="text-2xl font-bold text-green-600">BookNest</div>
+          <div>
+        <h1 className="text-3xl font-extrabold text-[#415E72]  leading-[3.1rem]">
+  BookNest
+        </h1>
+       </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex text-md font-bold space-x-6">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
@@ -43,8 +36,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `px-2 py-1 transition-colors ${
                     isActive
-                      ? "text-green-600 border-b-2 border-green-600"
-                      : "text-gray-700 hover:text-green-600"
+                      ? "text-[#FFA4A4] border-b-2 border-[#FFA4A4]"
+                      : "text-gray-700 hover:text-[#FFA4A4]"
                   }`
                 }
               >

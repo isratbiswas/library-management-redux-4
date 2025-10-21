@@ -9,8 +9,12 @@ function App() {
   return (
     <>
      <Toaster richColors/>
-    <Navbar/>
-    <Outlet/>
+      <div className="sticky top-4 z-50">
+        <Navbar/>
+      </div>
+     <div className="min-h-dvh">
+      <Outlet/>
+     </div>
     <Footer/>
     </>
   )
