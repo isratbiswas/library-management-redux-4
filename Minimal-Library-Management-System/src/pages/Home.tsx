@@ -1,5 +1,8 @@
-import Benefits from "@/components/home/Benefits";
+
+import BookShowcase from "@/components/home/BookShowcase";
+import Features from "@/components/home/Features";
 import HeroSection from "@/components/home/HeroSection";
+import Testimonials from "@/components/home/Testimonials";
 
 
 
@@ -17,7 +20,12 @@ const Home = () => {
 
           ctaButtonText="Subscribe"
         />
-        <Benefits/>
+    
+        <Features/>
+        <BookShowcase/>
+        <Testimonials/>
+
+
         </div>
     );
 };

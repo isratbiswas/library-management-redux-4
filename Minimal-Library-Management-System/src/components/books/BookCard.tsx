@@ -13,7 +13,7 @@ interface BookCardProps {
 const BookCard = ({book}: BookCardProps) => {
     const isBookAvailable= book.available && book.copies>0;
     return(
-         <div className="bg-white rounded-xl shadow-md border p-5 flex flex-col h-full transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group">
+         <div className="bg-white rounded-xl shadow-md  p-5 flex flex-col h-full transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group">
       <div className="flex items-center justify-between mb-3">
         <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border border-blue-200">
           {book.genre}

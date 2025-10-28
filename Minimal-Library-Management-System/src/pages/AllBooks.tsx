@@ -80,7 +80,7 @@ const BooksPage = () => {
     
 
       {/* Controls */}
-      <div className="bg-white rounded-xl shadow-md border p-6 mb-8">
+      <div className="bg-white rounded-xl shadow-md  p-6 mb-8">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
           {/* Search and Filter */}
           <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 flex-1">

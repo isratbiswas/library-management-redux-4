@@ -28,22 +28,6 @@ const textVariants : Variants = {
   },
 };
 
-// Animation for the Image (Slide-in and slight rotation)
-const imageVariants : Variants = {
-  hidden: { opacity: 0, x: 50, rotate: 3 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    rotate: 0, 
-    transition: { 
-      type: "spring", 
-      stiffness: 70, 
-      damping: 10, 
-      delay: 0.5 // Image appears slightly after text
-    } 
-  },
-};
-
 const HeroSection: React.FC<CallToActionWithImageProps> = ({
   heading,
   subheading,
@@ -54,9 +38,9 @@ const HeroSection: React.FC<CallToActionWithImageProps> = ({
   ctaButtonText,
 }) => {
   return (
-    // 3. Main Section: Light background color from the image, hidden overflow to prevent scroll issues from absolute elements.
+   
     <section className="relative py-20  md:py-32">
-      {/* --- Background Decorative Elements (Circles) --- */}
+   
       
   {/* Circle 1 */}
   <div className="circle w-10 h-10 border-[#F5D2D2] top-1/4 left-0" style={{ animationDuration: '25s' }} />
@@ -101,7 +85,8 @@ const HeroSection: React.FC<CallToActionWithImageProps> = ({
               <input
                 type="email"
                 placeholder={ctaPlaceholder}
-                // Styling mimics the clean look: less rounded border, subtle background, amber focus ring
+              
+
                 className="flex-grow p-4 bg-white rounded-left-md border outline-none border-gray-300 focus:ring-2 focus:ring-[#E06B80] focus:border-[#E06B80] transition duration-200"
               />
            <button className="relative overflow-hidden text-white bg-[#E06B80] font-bold py-4 px-8 rounded-right-md  transition duration-300 before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-[#8D5F8C] before:z-0 before:transition-all before:duration-300 hover:before:left-0">
@@ -112,25 +97,18 @@ const HeroSection: React.FC<CallToActionWithImageProps> = ({
           </motion.div>
 
           {/* --- Right Image Area (Overlapping Book Effect) --- */}
-          <motion.div
-            className="md:w-1/2 flex justify-center md:justify-end relative min-h-[350px] md:min-h-[500px]"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={imageVariants}
-          >
-           
+     
             
-            {/* Main Image: Absolute and Z-indexed to overlap */}
-            <img
+     
+        <div className="md:w-1/2 flex justify-center md:justify-end relative min-h-[350px] md:min-h-[500px]">
+              <img
               src={imageUrl}
               alt={imageAlt}
-              // Absolute position, higher Z-index, responsive size
               className="absolute w-72 h-auto object-contain rounded-lg shadow-2xl z-20 top-0 md:top-auto md:bottom-0 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0"
-              // Ensure consistent sizing and responsiveness
               style={{ width: 'clamp(280px, 60vw, 400px)', transformOrigin: 'bottom' }} 
             />
-          </motion.div>
+        </div>
+        
         </div>
       </div>
     </section>

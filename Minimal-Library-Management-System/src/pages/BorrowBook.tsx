@@ -89,9 +89,9 @@ const BorrowSummaryPage = () => {
           <p>There are currently no books that have been borrowed.</p>
         </div>
       ) : (
-        <div className="rounded-lg border bg-card overflow-hidden">
+        <div className="rounded-lg border border-gray-300 bg-card overflow-hidden">
           {/* Table Header */}
-          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border-b">
+          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-gray-300">
             <div className="grid grid-cols-3 gap-4 p-4 font-semibold text-sm uppercase tracking-wide text-muted-foreground">
               <div>Book Title</div>
               <div>ISBN</div>
@@ -100,11 +100,11 @@ const BorrowSummaryPage = () => {
           </div>
 
           {/* Table Body */}
-          <div className="divide-y">
+          <div className="divide-y ">
             {summary.map((item, index) => (
               <div
                 key={`${item.book.isbn}-${index}`}
-                className="grid grid-cols-3 gap-4 p-4 hover:bg-muted/50 transition-colors"
+                className="grid grid-cols-3 gap-4 border border-gray-300  p-4 hover:bg-muted/50 transition-colors"
               >
                 <div className="font-medium text-foreground">
                   {item.book.title}
@@ -113,7 +113,7 @@ const BorrowSummaryPage = () => {
                   {item.book.isbn}
                 </div>
                 <div className="text-right">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-base font-medium bg-gradient-to-r from-yellow-500 to-sky-500 text-white">
+                  <span className="inline-flex items-center px-3 py-1 rounded-md text-base font-medium bg-gradient-to-r from-[#8D5F8C] to-[#F08787] text-white">
                     {item.totalQuantity}{" "}
                     {item.totalQuantity === 1 ? "copy" : "copies"}
                   </span>
@@ -127,7 +127,7 @@ const BorrowSummaryPage = () => {
       {/* Summary Stats */}
       {summary.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border border-gray-400  bg-card p-4">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-blue-500" />
               <span className="text-sm font-medium text-muted-foreground">
@@ -138,7 +138,7 @@ const BorrowSummaryPage = () => {
               {summary.length}
             </p>
           </div>
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border border-gray-400  bg-card p-4">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-purple-500" />
               <span className="text-sm font-medium text-muted-foreground">
@@ -149,7 +149,7 @@ const BorrowSummaryPage = () => {
               {summary.reduce((total, item) => total + item.totalQuantity, 0)}
             </p>
           </div>
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg border border-gray-400  bg-card p-4">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4 text-pink-500" />
               <span className="text-sm font-medium text-muted-foreground">

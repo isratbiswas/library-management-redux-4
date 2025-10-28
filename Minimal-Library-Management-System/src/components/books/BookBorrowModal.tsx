@@ -227,7 +227,7 @@ export default function BookBorrowModal({ book }: BookBorrowModalProps) {
 
           <ScrollArea className="h-full max-h-[calc(90vh-8rem)] md:max-h-[calc(85vh-8rem)]">
             {/* Book Info */}
-            <div className="p-6 border-b border-gray-200">
+            <div className="p-6 border-b border-gray-50">
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 space-y-3 border border-blue-100">
                 <div className="flex items-center space-x-2">
                   <BookOpen className="h-4 w-4 text-blue-600" />
