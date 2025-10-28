@@ -21,16 +21,43 @@ const FooterSummary = () => {
                      <p className="text-gray-600 font-base mt-4">Welcome to BookNest – your digital haven for stories, knowledge, and imagination. Whether you're searching for timeless classics, the latest bestsellers, or hidden literary gems, our library offers something for every kind of reader. Discover, borrow, or dive into books that spark curiosity and fuel your love for reading—all in one place.</p>
                      <div className="flex mb-10 mt-4 text-2xl text-white  gap-6">
                         
-                        <div className="px-4 py-2 bg-[#FFA4A4] ">
-                          <FaFacebookF  />
-                        </div>
+                                                   <div className="relative w-12 h-12">
+  {/* Bottom layer */}
+  <div className="absolute inset-0 bg-[#8D5F8C] rounded-md"></div>
 
-                        <div className="px-4 py-2 bg-[#FFA4A4] ">
-                            <FaTwitter   />
-                        </div>
-                        <div className="px-4 py-2 bg-[#FFA4A4] ">
-                          <FaYoutube   />
-                        </div>
+  {/* Top layer */}
+  <div className="relative w-full h-full bg-[#FFA4A4] rounded-md
+                  transition-all duration-300 ease-in-out
+                  hover:translate-y-[-4px] hover:bg-transparent">
+           <FaTwitter  className="text-white text-lg absolute inset-0 m-auto" />
+                </div>
+       </div>  
+
+                                                   <div className="relative w-12 h-12">
+  {/* Bottom layer */}
+  <div className="absolute inset-0 bg-[#8D5F8C] rounded-md"></div>
+
+  {/* Top layer */}
+  <div className="relative w-full h-full bg-[#FFA4A4] rounded-md
+                  transition-all duration-300 ease-in-out
+                  hover:translate-y-[-4px] hover:bg-transparent">
+           <FaFacebookF  className="text-white text-lg absolute inset-0 m-auto" />
+                </div>
+       </div>  
+
+                              <div className="relative w-12 h-12">
+  {/* Bottom layer */}
+  <div className="absolute inset-0 bg-[#8D5F8C] rounded-md"></div>
+
+  {/* Top layer */}
+  <div className="relative w-full h-full bg-[#FFA4A4] rounded-md
+                  transition-all duration-300 ease-in-out
+                  hover:translate-y-[-4px] hover:bg-transparent">
+           <FaYoutube  className="text-white text-lg absolute inset-0 m-auto" />
+                </div>
+       </div>  
+                       
+                      
              <div className="relative w-12 h-12">
   {/* Bottom layer */}
   <div className="absolute inset-0 bg-[#8D5F8C] rounded-md"></div>
@@ -41,21 +68,8 @@ const FooterSummary = () => {
                   hover:translate-y-[-4px] hover:bg-transparent">
     <FaLinkedinIn className="text-white text-lg absolute inset-0 m-auto" />
   </div>
-</div>  
-
- <div className="relative w-10 h-10 m-1">
-      {/* Bottom layer */}
-      <div className="absolute inset-1 bg-[#8D5F8C] rounded-md"></div>
-
-      {/* Top layer */}
-      <div className="relative w-full h-full bg-[#FFA4A4] rounded-md
-                      transition-all duration-300 ease-in-out
-                      hover:bg-transparent">
-        <FaLinkedinIn className="text-white text-lg absolute inset-0 m-auto" />
-      </div>
+         </div>  
     </div>
-                        
-                     </div>
                    
                 </div>
                 <div className="text-left ml-4 mt-6">

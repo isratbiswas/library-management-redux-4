@@ -6,6 +6,7 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+    
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -27,6 +28,7 @@ export default defineConfig({
   base: "/",
   build: {
     outDir: "dist",
+    chunkSizeWarningLimit: 1000, // increases limit to 1 MB
     assetsDir: "assets",
     rollupOptions: {
       output: {

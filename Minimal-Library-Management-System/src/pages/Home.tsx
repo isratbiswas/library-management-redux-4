@@ -1,15 +1,19 @@
 
-import BookShowcase from "@/components/home/BookShowcase";
-import Features from "@/components/home/Features";
-import HeroSection from "@/components/home/HeroSection";
-import Testimonials from "@/components/home/Testimonials";
+import Loader from "@/components/loader/Loader";
+import  { Suspense, lazy } from "react";
 
+
+
+const HeroSection = lazy(() => import("@/components/home/HeroSection"));
+const BookShowcase = lazy(() => import( "@/components/home/BookShowcase"));
+const Features= lazy(() =>import("@/components/home/Features"))
+const Testimonials = lazy(() => import("@/components/home/Testimonials"))
 
 
 
 const Home = () => {
     return (
-        <div>
+         <Suspense fallback={ <Loader/>} >
          <HeroSection
           subheading="LET'S MAKE THE BEST INVESTMENT"
           heading="There Is No Friend As Loyal As A Book"
@@ -26,7 +30,7 @@ const Home = () => {
         <Testimonials/>
 
 
-        </div>
+        </Suspense>
     );
 };
 

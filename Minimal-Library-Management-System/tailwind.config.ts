@@ -14,5 +14,9 @@ export default {
       },
     },
   },
+  daisyui: {
+  themes: true,
+  logs: false, // hides daisyUI warnings
+},
   plugins: [],
 };
