@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion, type Variants } from 'framer-motion';
 
 // --- 1. TypeScript Interface for Props ---
